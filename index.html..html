@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>MarginOS — Profit clarity, starting with your CSV</title>
+<style>
+:root{--bg:#0b1020;--panel:#121d30;--panel2:#17243a;--line:#29364d;--ink:#f3f6fb;--muted:#9eacc1;--lime:#c8f169;--cyan:#7de4d2;--red:#ff9d91}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#28345b66,transparent 36%),var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,-apple-system,Segoe UI,sans-serif}.wrap{width:min(1120px,calc(100% - 32px));margin:auto}.top{height:76px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{font-size:20px;font-weight:850;letter-spacing:-.7px}.mark{display:inline-grid;place-items:center;width:32px;height:32px;background:var(--lime);color:#111827;border-radius:10px;margin-right:9px}.pill{font-size:11px;color:var(--lime);border:1px solid #c8f16955;padding:5px 9px;border-radius:20px}.hero{padding:48px 0 30px}.eyebrow{color:var(--lime);font-size:11px;font-weight:850;letter-spacing:1.8px;text-transform:uppercase}h1{font-size:clamp(34px,5vw,55px);letter-spacing:-2.7px;line-height:1.05;margin:12px 0}h1 span{color:var(--lime)}.lead{color:var(--muted);max-width:700px;margin:0}.layout{display:grid;grid-template-columns:340px 1fr;gap:18px;padding:22px 0 60px}.panel{background:linear-gradient(145deg,#16243a,#111a2b);border:1px solid var(--line);border-radius:20px;padding:22px}.panel h2{font-size:17px;margin:0 0 7px}.hint{color:var(--muted);font-size:12px;margin:0 0 18px}.drop{border:1px dashed #6e819c;border-radius:15px;padding:20px 13px;text-align:center;background:#0b1424}.drop strong{display:block;margin:6px 0}.drop small{color:var(--muted);font-size:11px}.btn{border:0;border-radius:11px;padding:11px 14px;background:var(--lime);color:#111827;font-weight:800;cursor:pointer}.btn.secondary{background:transparent;color:var(--ink);border:1px solid var(--line)}.btn:disabled{opacity:.4;cursor:not-allowed}.actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:13px}.sample{margin-top:16px;width:100%}.schema{margin-top:18px;border-top:1px solid var(--line);padding-top:15px}.schema summary{cursor:pointer;color:#dce6f4;font-size:12px;font-weight:750}.schema code{display:block;white-space:normal;overflow-wrap:anywhere;color:#b7c5d8;background:#0b1424;padding:10px;border-radius:9px;font-size:10px;margin-top:9px}.schema p{color:var(--muted);font-size:11px}.status{font-size:12px;color:var(--muted);margin-top:12px;min-height:18px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.metric{padding:15px;border:1px solid var(--line);border-radius:14px;background:#ffffff06;min-width:0}.metric label{display:block;color:var(--muted);font-size:11px}.metric b{display:block;font-size:clamp(18px,2.2vw,25px);letter-spacing:-.8px;margin:5px 0;overflow-wrap:anywhere}.positive{color:var(--lime)}.negative{color:var(--red)}.sectiontitle{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:24px 0 10px}.sectiontitle h3{font-size:15px;margin:0}.sectiontitle span{font-size:11px;color:var(--muted)}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:13px}table{width:100%;border-collapse:collapse;min-width:590px;font-size:12px}th,td{text-align:right;padding:11px 12px;border-bottom:1px solid #29364d88;white-space:nowrap}th{color:var(--muted);font-weight:650;background:#ffffff06}th:first-child,td:first-child{text-align:left}td:first-child{font-weight:700}tr:last-child td{border-bottom:0}.empty{padding:42px 15px;text-align:center;border:1px dashed var(--line);border-radius:14px;color:var(--muted);font-size:13px}.empty b{display:block;color:var(--ink);font-size:15px;margin-bottom:5px}.foot{border-top:1px solid var(--line);padding:18px 0 28px;color:#8492a8;font-size:11px}.notice{margin-top:15px;padding:12px;border-radius:12px;background:#c8f16912;border:1px solid #c8f16933;color:#dbe8c4;font-size:11px}.hidden{display:none!important}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:480px){.wrap{width:calc(100% - 22px)}.hero{padding-top:34px}.panel{padding:16px}.top{height:65px}}
+</style>
+</head>
+<body>
+<header class="wrap top"><div class="brand"><span class="mark">M</span>marginOS</div><span class="pill">MVP · v0.1 · CSV ANALYSER</span></header>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">Profit intelligence for ecommerce</div><h1>Know what you <span>actually keep.</span></h1><p class="lead">Upload a simple product-sales CSV to estimate contribution by product. Your file is processed in this browser and is not uploaded to a server.</p></section>
+<section class="layout">
+<aside class="panel">
+<h2>1. Add your sales data</h2><p class="hint">Use your own CSV or load the sample dataset to explore the product.</p>
+<div class="drop"><div style="font-size:25px">⇧</div><strong>Choose a CSV file</strong><small>CSV format · processed locally in this browser</small><div class="actions" style="justify-content:center"><label class="btn" for="file">Choose CSV</label><input id="file" class="hidden" type="file" accept=".csv,text/csv"></div></div>
+<button class="btn secondary sample" id="sample">Load sample data</button>
+<div class="schema"><details open><summary>Required CSV columns</summary><code>product, quantity, unit_price, unit_cost</code><p>Optional columns: discount, shipping_cost, payment_fee, ad_cost. Use one row per product line. Monetary values should be numbers in GBP, without currency symbols.</p></details></div>
+<div class="notice"><b>Privacy by design:</b> v0.1 reads the selected file locally. It does not send or save your data. Do not upload customer names, addresses, emails or other personal data.</div>
+<div class="status" id="status" role="status">Waiting for a CSV file.</div>
+</aside>
+<section class="panel">
+<div style="display:flex;justify-content:space-between;gap:12px;align-items:start"><div><h2>2. Your margin snapshot</h2><p class="hint">Illustrative calculations based on the rows you provide.</p></div><button id="export" class="btn secondary" disabled>Export results</button></div>
+<div id="results" class="hidden">
+<div class="cards">
+<div class="metric"><label>Net sales</label><b id="sales">—</b><small>After discounts</small></div>
+<div class="metric"><label>Product costs</label><b id="cogs">—</b><small>Quantity × unit cost</small></div>
+<div class="metric"><label>Contribution</label><b id="contribution">—</b><small>After entered variable costs</small></div>
+<div class="metric"><label>Contribution margin</label><b id="margin">—</b><small>Contribution ÷ net sales</small></div>
+</div>
+<div class="sectiontitle"><h3>Product performance</h3><span id="rowcount"></span></div>
+<div class="tablewrap"><table><thead><tr><th>Product</th><th>Net sales</th><th>Variable costs</th><th>Contribution</th><th>Margin</th></tr></thead><tbody id="tbody"></tbody></table></div>
+<div class="sectiontitle"><h3>How to read this</h3></div><p class="hint" style="line-height:1.7">Contribution here means net sales minus product cost, shipping cost, payment fee and ad cost entered in the CSV. It is not net profit: fixed overhead, salaries, tax, refunds not represented in the file and other costs may be missing.</p>
+</div>
+<div id="empty" class="empty"><b>Your dashboard is ready.</b>Load the sample data or choose a CSV to see product-level economics here.</div>
+</section>
+</section>
+</main>
+<footer class="wrap foot">MarginOS MVP · Built to validate a real customer problem before investing in integrations. This is an estimate tool, not accounting or tax advice.</footer>
+<script>
+const $=s=>document.querySelector(s);
+let latest=[];
+const optional=['discount','shipping_cost','payment_fee','ad_cost'];
+function parseCSV(text){
+ const rows=[];let row=[],cell='',quoted=false;
+ for(let i=0;i<text.length;i++){const c=text[i],n=text[i+1];if(c==='"'&&quoted&&n==='"'){cell+='"';i++}else if(c==='"'){quoted=!quoted}else if(c===','&&!quoted){row.push(cell.trim());cell=''}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&n==='\n')i++;row.push(cell.trim());if(row.some(x=>x!==''))rows.push(row);row=[];cell=''}else cell+=c}
+ row.push(cell.trim());if(row.some(x=>x!==''))rows.push(row);
+ if(rows.length<2)throw Error('The CSV needs a header row and at least one data row.');
+ const headers=rows.shift().map(x=>x.toLowerCase().trim());
+ if(headers.includes('product')===false||!headers.includes('quantity')||!headers.includes('unit_price')||!headers.includes('unit_cost'))throw Error('Missing required columns. Required: product, quantity, unit_price, unit_cost.');
+ return rows.map((r,i)=>{const o={};headers.forEach((h,j)=>o[h]=r[j]??'');return o}).filter(r=>r.product);
+}
+function num(v,name,row){if(v===undefined||v===null||String(v).trim()==='')return 0;const n=Number(String(v).replace(/[£$,]/g,''));if(!Number.isFinite(n)||n<0)throw Error(`Invalid ${name} on CSV data row ${row}. Use a non-negative number.`);return n}
+function analyse(rows){
+ const products={};let totals={sales:0,cogs:0,shipping:0,fees:0,ads:0,discount:0,contribution:0,quantity:0};
+ rows.forEach((r,i)=>{
+  const line=i+2,q=num(r.quantity,'quantity',line),price=num(r.unit_price,'unit_price',line),cost=num(r.unit_cost,'unit_cost',line),discount=num(r.discount,'discount',line),shipping=num(r.shipping_cost,'shipping_cost',line),fee=num(r.payment_fee,'payment_fee',line),ad=num(r.ad_cost,'ad_cost',line);
+  if(q<=0)throw Error(`Quantity must be greater than zero on CSV data row ${line}.`);
+  const gross=q*price,net=gross-discount;if(net<0)throw Error(`Discount exceeds line sales on CSV data row ${line}.`);
+  const cogs=q*cost,variable=cogs+shipping+fee+ad,contribution=net-variable;
+  const name=String(r.product).trim();if(!products[name])products[name]={product:name,sales:0,cogs:0,shipping:0,fees:0,ads:0,contribution:0,quantity:0};
+  const p=products[name];p.sales+=net;p.cogs+=cogs;p.shipping+=shipping;p.fees+=fee;p.ads+=ad;p.contribution+=contribution;p.quantity+=q;
+  totals.sales+=net;totals.cogs+=cogs;totals.shipping+=shipping;totals.fees+=fee;totals.ads+=ad;totals.contribution+=contribution;totals.quantity+=q;
+ });
+ return {totals,products:Object.values(products).sort((a,b)=>b.contribution-a.contribution)};
+}
+const gbp=n=>new Intl.NumberFormat('en-GB',{style:'currency',currency:'GBP',maximumFractionDigits:2}).format(n);
+function render(data){
+ const t=data.totals;$('#sales').textContent=gbp(t.sales);$('#cogs').textContent=gbp(t.cogs);$('#contribution').textContent=gbp(t.contribution);$('#contribution').className=t.contribution>=0?'positive':'negative';$('#margin').textContent=(t.sales?100*t.contribution/t.sales:0).toFixed(1)+'%';$('#margin').className=t.contribution>=0?'positive':'negative';$('#rowcount').textContent=`${data.products.length} products · ${t.quantity} units`;
+ $('#tbody').innerHTML=data.products.map(p=>{const costs=p.cogs+p.shipping+p.fees+p.ads,margin=p.sales?100*p.contribution/p.sales:0;return `<tr><td>${escapeHTML(p.product)}</td><td>${gbp(p.sales)}</td><td>${gbp(costs)}</td><td class="${p.contribution>=0?'positive':'negative'}">${gbp(p.contribution)}</td><td>${margin.toFixed(1)}%</td></tr>`}).join('');
+ $('#results').classList.remove('hidden');$('#empty').classList.add('hidden');$('#export').disabled=false;latest=data.products;
+}
+function escapeHTML(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function load(text,label){try{const rows=parseCSV(text),data=analyse(rows);render(data);$('#status').textContent=`Loaded ${rows.length} product-line rows from ${label}.`; }catch(e){$('#status').textContent=e.message;$('#status').style.color='var(--red)';}}
+$('#file').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;$('#status').style.color='var(--muted)';load(await f.text(),f.name);e.target.value=''});
+$('#sample').addEventListener('click',()=>{const csv=`product,quantity,unit_price,unit_cost,discount,shipping_cost,payment_fee,ad_cost
+Everyday Tote,120,28,8,120,180,92,260
+Everyday Tote,80,28,8,0,120,62,170
+Travel Bottle,95,22,6,80,145,66,190
+Travel Bottle,60,22,6,0,90,42,120
+Weekend Bag,35,68,24,100,105,76,210
+Weekend Bag,22,68,24,0,66,48,130
+`;$('#status').style.color='var(--muted)';load(csv,'sample dataset')});
+$('#export').addEventListener('click',()=>{if(!latest.length)return;const header=['product','net_sales_gbp','product_cost_gbp','shipping_gbp','payment_fees_gbp','ad_cost_gbp','contribution_gbp','contribution_margin_percent'];const lines=[header.join(','),...latest.map(p=>{const costs=p.cogs+p.shipping+p.fees+p.ads;return [p.product,p.sales,p.cogs,p.shipping,p.fees,p.ads,p.contribution,p.sales?100*p.contribution/p.sales:0].map(v=>'"'+String(v).replace(/"/g,'""')+'"').join(',')})];const blob=new Blob([lines.join('\n')],{type:'text/csv'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='marginos-product-analysis.csv';a.click();URL.revokeObjectURL(url)});
+</script>
+</body></html>
